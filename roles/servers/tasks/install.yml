@@ -25,6 +25,13 @@
     state: present
     filename: elasticsearch-7.x
   when: ansible_distribution == 'Ubuntu'
+  
+  - name: Install Elasticsearch
+  apt_repository:
+    repo: deb https://artifacts.elastic.co/packages/7.x/apt stable main
+    state: present
+    filename: elasticsearch-7.x
+  when: ansible_distribution == 'Ubuntu'
 
 - name: Install Elasticsearch
   package:
