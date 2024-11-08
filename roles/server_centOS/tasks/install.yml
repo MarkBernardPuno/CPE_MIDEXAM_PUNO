@@ -1,0 +1,20 @@
+- name: Install Elasticsearch
+  yum_repository:
+    name: elasticsearch-7.x
+    description: Elasticsearch repository for 7.x packages
+    baseurl: https://artifacts.elastic.co/packages/7.x/yum
+    gpgcheck: 1
+    gpgkey: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+  when: ansible_distribution == 'CentOS'
+
+- name: Install Kibana
+  yum:
+    name: kibana
+    state: present
+  when: ansible_distribution == 'CentOS'
+
+- name: Install Logstash
+  yum:
+    name: logstash
+    state: present
+  when: ansible_distribution == 'CentOS'

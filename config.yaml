@@ -1,0 +1,12 @@
+---
+- name: install elasticsearch
+  hosts: servers
+  become: true
+  roles:
+    - servers
+
+- name: install elasticsearch and nagios on centos
+  hosts: server_centOS
+  become: true
+  roles:
+    - server_centOS
